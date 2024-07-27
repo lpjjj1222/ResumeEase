@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} 
+Upload resume
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "cv/upload.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="upload">
+    <div class="container">
+        <h2>Upload a CV</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

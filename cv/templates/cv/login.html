@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title%} 
+    CVEase
+{% endblock%}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "cv/index.css" %}">
+{% endblock %}
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "cv/images/logo.png" %}" alt="Logo" />
+            <h2>CVEase</h2>
+        </header>
+        <p>
+            Ease your resume handling process with CVEase!
+        </p>
+    </section>  
+    <section id="login">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}" />
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+{% endblock %}

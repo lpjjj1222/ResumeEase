@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} 
+All Candidates
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "cv/all_candidates.css" %}" />
+{% endblock %}
+
+{% block content %}
+<section id="all-candidates">
+  <h2>All Candidates</h2>
+
+  <ul>
+    {% for c in all_candidates %}
+      {% include "cv/includes/candidate.html" %}
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

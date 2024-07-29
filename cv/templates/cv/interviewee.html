@@ -2,19 +2,19 @@
 {% load static %}
 
 {% block title %} 
-All Candidates
+All Interviewees
 {% endblock %} 
 
 {% block css_files %}
-  <link rel="stylesheet" href="{% static "cv/all_candidates.css" %}" />
+  <link rel="stylesheet" href="{% static "cv/interviewee.css" %}" />
 {% endblock %}
 
 {% block content %}
 <section id="all-candidates">
-  <h2>All Candidates</h2>
+  <h2>All Interviewees </h2>
 
   <ul>
-    {% for c in candidates %}
+    {% for c in interviewee %}
       {% include "cv/includes/candidate.html" %}
     {% endfor %}
   </ul>

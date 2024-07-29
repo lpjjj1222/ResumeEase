@@ -1,13 +1,9 @@
-
 <li>
     <article class="candidate">
-        <a href="">
-            {% comment %} <img src="{{ post.image.url }}" alt="{{ post.title }}" width="100" /> {% endcomment %}
-            <div class="">
-                <h3>{{ candidate.name }}</h3>
-                {% comment %} <p>
-                   {{ post.excerpt }} 
-                </p> {% endcomment %}
+        <a href="{% url "candidate-detail" c.slug %}">
+            <div class="c__content">
+                <h3>{{ c.name }}</h3>
+
             </div>
         </a>
     </article>

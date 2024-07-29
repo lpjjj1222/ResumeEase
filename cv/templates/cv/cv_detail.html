@@ -1,0 +1,106 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %} 
+{{ candidate.name }}
+{% endblock %} 
+
+{% block css_files %} 
+<link rel="stylesheet" href="{% static "cv/cv_detail.css" %}" /> 
+{% endblock %} 
+
+{% block content %}
+
+{% if note_form.errors %}
+  <div id="alert">
+    <h2>Saving the note failed!</h2>
+    <p>Please check the note form and fix your erros.</p>
+    <a href="#note-form">Fix!</a>
+  </div>
+{% endif %}
+
+<section id="summary">
+  <h2>{{ candidate.name }}</h2>
+  <div>
+    {% for tag in tags %}
+      <span class="tag">{{ tag.caption }}</span>
+    {% endfor %}
+  </div>
+  <article>
+    <div>Uploaded on <time>{{ candidate.uploaded_at|date:"d M Y" }}</time></div>
+  </article>
+    <p><a href="{{ candidate.cv_file.url }}">click here to read the resume PDF file.</a></p>
+
+
+    <form method="post" action="{% url "candidate-detail" candidate.slug %}" name="cancel-invitation">
+        {% csrf_token %}
+        <button  class="btn btn-primary" 
+        {% if candidate.status == 'selected' %}
+            style="background-color: red;"
+            name="cancel-invitation"
+            type="submit"
+        {% else %}
+            type="button"
+            data-bs-toggle="modal" data-bs-target="#infoModal"
+        {% endif %}
+        >
+            {% if candidate.status == 'selected' %}
+                Remove from interviewees
+            {% else %}
+                Invite for interview
+            {% endif %}
+        </button>
+    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalLabel">Invitation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url "candidate-detail" candidate.slug %}" name="submit-invitation">
+                        {% csrf_token %}
+                        {{ invitation_form.as_p }}
+                        <button type="submit" class="btn btn-primary" name="submit-invitation">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+<section id="notes">
+  <ul>
+    {% for note in notes %}
+      <li>
+        <h2>{{ note.user }}</h2>
+        <p>{{ note.text|linebreaks }}</p>
+        <time>{{ note.created_at|date:"d M Y H:i" }}</time>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="note-form">
+  <h2>Add a note</h2>
+  <form action="{% url "candidate-detail" candidate.slug %}" method="POST" name="submit-note">
+    {% csrf_token %}
+    {% for form_field in note_form %}
+      <div class="form-control {% if form_field.errors %}invalid{% endif %}">
+        {{ form_field.label_tag }}
+        {{ form_field }}
+        {{ form_field.errors }}
+      </div>
+    {% endfor %}
+    <button name="submit-note">Save</button>
+  </form>
+</section>
+{% endblock %}

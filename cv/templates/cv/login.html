@@ -20,13 +20,15 @@
             Ease your resume handling process with CVEase!
         </p>
     </section>  
+    <div class="text-center m-4">
     <section id="login">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="hidden" name="next" value="{{ next }}" />
-            <button type="submit">Login</button>
+            <button class="btn btn-light" type="submit">Login</button>
         </form>
     </section>
+    </div>
 
 {% endblock %}

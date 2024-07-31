@@ -1,12 +1,4 @@
-body {
-    background-color: #e7e7e7;
-  }
-  
-  #main-navigation {
-    background-color: #390281;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  }
-  
+
   #all-candidates {
     margin: 7rem auto;
     width: 90%;
@@ -19,29 +11,15 @@ body {
     color: #2e2e2e;
     margin: 3rem 0;
   }
-  
-  ul {
-    background-color: 'pink';
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-    gap: 1.5rem;
-    border: #2e2e2e solid 1px;
+
+  .pink-bg {
+    background-color: #FDB095;
   }
-  
-  .candidate img {
-    width: 7rem;
-    height: 7rem;
-  }
-  
-  .candidate a {
-    background-color: #390281;
-    height: 22rem;
-    transform-origin: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
-    background-color: white;
+
+  a {
     text-decoration: none;
+    color: white;
+    font-weight: bold;
   }
+  
+  

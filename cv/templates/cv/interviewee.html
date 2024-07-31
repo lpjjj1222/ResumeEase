@@ -10,12 +10,18 @@ All Interviewees
 {% endblock %}
 
 {% block content %}
-<section id="all-candidates">
+<section id="all-candidates" class="m-4 text-center">
   <h2>All Interviewees </h2>
 
   <ul>
     {% for c in interviewee %}
-      {% include "cv/includes/candidate.html" %}
+      <li class="list-group-item pink-bg">
+        <a href="{% url "candidate-detail" c.slug %}">
+            <div class="">
+                <h3>{{ c.name }}</h3>
+            </div>
+        </a>
+      </li>
     {% endfor %}
   </ul>
 </section>

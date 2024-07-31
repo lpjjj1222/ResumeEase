@@ -1,5 +1,5 @@
 from django import forms
-from .models import Candidate, Note, Invitation
+from .models import Candidate, Note, Invitation, Tag
 
 class ResumeForm(forms.ModelForm):
     class Meta:
@@ -14,7 +14,7 @@ class NoteForm(forms.ModelForm):
         model = Note
         exclude = ['candidate', 'created_at']
         labels = {
-            'text': 'Add a note',
+            'text': '',
             'user': 'Your name',
         }
 
@@ -26,6 +26,13 @@ class InvitationForm(forms.ModelForm):
             'interview_date': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}),
             'position': forms.Select(attrs={'class': 'form-control'}),
         }
+
+class TagsSelectionForm(forms.Form):
+    selected_tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
+        widget=forms.SelectMultiple(attrs={'class': 'select2-multiple'}),
+        )
+
         
 
 

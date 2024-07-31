@@ -11,11 +11,17 @@ All Candidates
 
 {% block content %}
 <section id="all-candidates">
-  <h2>All Candidates</h2>
+  <h2 class="text-white">All Candidates</h2>
 
-  <ul>
+  <ul class="list-group list-group-flush">
     {% for c in candidates %}
-      {% include "cv/includes/candidate.html" %}
+    <li class="list-group-item pink-bg text-center">
+      <a href="{% url "candidate-detail" c.slug %}">
+          <div class="">
+              <h3>{{ c.name }}</h3>
+          </div>
+      </a>
+    </li>
     {% endfor %}
   </ul>
 </section>

@@ -1,0 +1,61 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %} 
+Search candidates according to tech stack
+{% endblock %} 
+
+{% block css_files %} 
+<link rel="stylesheet" href="{% static "cv/tags-select.css" %}" /> 
+{% endblock %} 
+
+{% block content %}
+<section>
+<div class="container mt-4">
+    <div class="mb-4">
+    <h2>Select Tags to Search Candidates</h2>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <div>
+        {{ form.as_p }}
+        </div>
+        <button class="btn btn-light" type="submit">Search</button>
+    </form>
+    </div>
+
+    <div class="mt-4 text-center">
+    <h2>Match Results</h2>
+    <div class="m-4">
+        {% for tag in tags %}
+          <span class="badge text-bg-secondary m-1">{{ tag.caption }}</span>
+        {% endfor %}
+    </div>
+
+    {% if candidates %}
+        <ul class="list-group list-group-flush">
+        {% for candidate in candidates %}
+            <li class="list-group-item pink-bg text-center">
+                <a href="{% url 'candidate-detail' candidate.slug %}">
+                    {{ candidate.name }} ({{ candidate.num_matching_tags }} matching tags)
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No candidates found.</p>
+    {% endif %}
+    </div>
+</div>
+</section>
+
+<script>
+$(document).ready(function() {
+    $('.select2-multiple').select2({
+        placeholder: "Select tags",
+        allowClear: true
+    });
+});
+</script>
+
+{% endblock %}

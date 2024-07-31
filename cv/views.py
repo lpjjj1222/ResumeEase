@@ -6,7 +6,7 @@ from .models import Candidate
 from django.views.generic.edit import FormView
 from django.views import View
 from django.shortcuts import redirect
-from .forms import ResumeForm,NoteForm,InvitationForm
+from .forms import ResumeForm,NoteForm,InvitationForm, TagsSelectionForm
 from django.urls import reverse_lazy
 from django.utils.text import slugify
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -17,6 +17,7 @@ from .models import Tag
 from django.urls import reverse
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.db.models import Count, Q
 
 # Create your views here.
 
@@ -48,9 +49,12 @@ class UploadCVView(LoginRequiredMixin,FormView):
             return text
         
     def find_matching_tags(self, text, tags):
-        pattern = re.compile('|'.join(re.escape(tag) for tag in tags), re.IGNORECASE)
-        matching_tags = pattern.findall(text)
-        return set(matching_tags)  # 使用 set 去重
+        matching_tags = set()
+        for tag in tags:
+            pattern = re.compile(r'\b' + re.escape(tag) + r'\b', re.IGNORECASE)
+            if pattern.search(text):
+                matching_tags.add(tag)
+        return matching_tags
 
 
     def form_valid(self, form):
@@ -61,6 +65,7 @@ class UploadCVView(LoginRequiredMixin,FormView):
         #提取pdf内容
         pdf_file = self.request.FILES['cv_file']
         pdf_content = self.extract_text_from_pdf(pdf_file)
+        print('@@@@@pdf_content:',pdf_content)
         # 找邮箱
         email_pattern = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
         email = re.search(email_pattern, pdf_content)
@@ -192,5 +197,21 @@ class IntervieweeView(LoginRequiredMixin, View):
             c.save()
         return HttpResponseRedirect(reverse("candidate-detail", args=[s]))
 
-        
-        
+class TagsSelectView(LoginRequiredMixin, FormView):
+    template_name = 'cv/tags-select.html'
+    form_class = TagsSelectionForm
+
+    def form_valid(self, form):
+        desired_tags = form.cleaned_data['selected_tags']
+        #获取desired的tag实例
+        #候选人有tag在desired_tags里面，才能入选
+        candidates = Candidate.objects.filter(tags__in=desired_tags).distinct()
+        #annotate each candidates with the number of matching tags
+        candidates = candidates.annotate(num_matching_tags=Count('tags', filter=Q(tags__in=desired_tags)))
+        #order candidates by the number of matching tags
+        candidates = candidates.order_by('-num_matching_tags')
+        context = {
+            "candidates": candidates or None,
+            "tags": desired_tags,
+        }
+        return self.render_to_response(context)

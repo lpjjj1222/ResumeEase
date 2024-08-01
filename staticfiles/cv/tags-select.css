@@ -1,0 +1,13 @@
+.select2-results__option {
+    color: black; /* 设置选项字体颜色 */
+}
+
+.pink-bg {
+    background-color: #FDB095;
+  }
+
+li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}

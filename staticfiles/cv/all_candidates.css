@@ -1,0 +1,25 @@
+
+  #all-candidates {
+    margin: 7rem auto;
+    width: 90%;
+    max-width: 60rem;
+  }
+  
+  #all-candidates h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2e2e2e;
+    margin: 3rem 0;
+  }
+
+  .pink-bg {
+    background-color: #FDB095;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  

@@ -8,6 +8,7 @@ CVEase is a web application designed to streamline the process of managing resum
 2. **Candidate Profiles**: Each candidate has a dedicated page displaying their tech stack with badges, links to their resume for online viewing, one-click interview invitation, interview cancellation, and feedback from interviewers, HR, or hiring managers.
 
 ![Candidate profile page] (images/cv-detail-page.png)
+
 3. **Interview Scheduling**: Automatically sends an invitation email with interview details when HR selects the interview date, time, and position.
 4. **Tech Stack Matching**: Identifies candidates with relevant tech stacks and ranks search results based on the number of matching skills.
 

@@ -1,5 +1,3 @@
-以下是一个GPL v3.0 许可证的示例，你可以将其添加到你的项目中。请将文件命名为 `LICENSE`，并在你的项目根目录中包含它。
-
 ```markdown
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007

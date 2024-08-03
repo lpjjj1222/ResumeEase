@@ -6,12 +6,10 @@ CVEase is a web application designed to streamline the process of managing resum
 
 1. **Resume Upload and Parsing**: Automatically extracts email and phone contact information, as well as the candidate's tech stack, from uploaded PDF resumes.
 2. **Candidate Profiles**: Each candidate has a dedicated page displaying their tech stack with badges, links to their resume for online viewing, one-click interview invitation, interview cancellation, and feedback from interviewers, HR, or hiring managers.
+![Candidate profile page] (./cv/static/cv/images/cv-detail-page.png)
 3. **Interview Scheduling**: Automatically sends an invitation email with interview details when HR selects the interview date, time, and position.
 4. **Tech Stack Matching**: Identifies candidates with relevant tech stacks and ranks search results based on the number of matching skills.
 
-## Introduction
-
-CVEase is designed to assist HR departments in efficiently managing candidate information and scheduling interviews. It offers a user-friendly interface to upload and parse resumes, manage candidate profiles, and handle interview scheduling. The application is built using Django, a high-level Python web framework, and deployed on AWS Elastic Beanstalk for scalability and reliability.
 
 ## Dependencies and Libraries
 
@@ -43,10 +41,10 @@ CVEase is licensed under the GNU General Public License v3.0. You may not use th
 
 CVEase 是一个 web 应用程序，旨在帮助互联网行业的中小型公司或大公司的内部招聘团队轻松管理简历和候选人信息。该项目使用 Django 构建，并使用 SQLite 作为数据库。它通过 AWS Elastic Beanstalk 部署。
 
-## 特性
+## 功能
 
 1. **简历上传和解析**：自动提取上传的 PDF 简历中的邮箱和电话联系信息，以及候选人的技术栈。
-2. **候选人档案**：每个候选人有一个专属页面，显示其技术栈徽章、跳转 PDF 在线阅读、一键邀请候选人面试、取消面试、面试官或 HR 或招聘经理留下的反馈并展示反馈。
+2. **候选人档案**：每个候选人有一个专属页面，显示其技术栈词条、跳转 PDF 在线阅读、一键邀请候选人面试、取消面试、面试官或 HR 或招聘经理留下的反馈并展示反馈。
 3. **面试安排**：当 HR 选择面试日期、时间和职位后，自动发送包含面试信息的邀请邮件。
 4. **技术栈匹配**：识别系统内具有相关技术栈的候选人，并根据匹配的技能数量对搜索结果进行排名。
 

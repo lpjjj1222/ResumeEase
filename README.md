@@ -1,6 +1,6 @@
 # CVEase
 
-CVEase is a web application designed to streamline the process of managing resumes and candidates for small to medium-sized companies or internal recruitment teams within large companies in the internet industry. The project is built with Django and uses SQLite as the database. It is deployed using AWS Elastic Beanstalk.
+CVEase is a web application designed to streamline the process of managing resumes and candidates for small to medium-sized companies or internal recruitment teams within large companies in the internet industry. The project uses Django as the back-end framework and SQLite as the database. It utilizes Bootstrap for front-end styling to ensure a responsive and modern user interface. The application is deployed using AWS Elastic Beanstalk, and Route 53 is used to configure the domain.
 
 ## Features
 
@@ -55,7 +55,7 @@ CVEase is licensed under the GNU General Public License v3.0. You may not use th
 
 # CVEase
 
-CVEase 是一个 web 应用程序，旨在帮助互联网行业的中小型公司或大公司的内部招聘团队轻松管理简历和候选人信息。该项目使用 Django 构建，并使用 SQLite 作为数据库。它通过 AWS Elastic Beanstalk 部署。
+CVEase 是一个 web 应用程序，旨在帮助互联网行业的中小型公司或大公司的内部招聘团队轻松管理简历和候选人信息。该项目使用 Django 作为后端框架，并使用 SQLite 作为数据库。前端样式设计采用了 Bootstrap，以确保用户界面响应迅速且现代化。应用通过 AWS Elastic Beanstalk 部署，并使用 Route 53 配置域名。
 
 ## 功能
 

@@ -5,12 +5,26 @@ CVEase is a web application designed to streamline the process of managing resum
 ## Features
 
 1. **Resume Upload and Parsing**: Automatically extracts email and phone contact information, as well as the candidate's tech stack, from uploaded PDF resumes.
+
+![Resume Upload](images/upload.png)
+
 2. **Candidate Profiles**: Each candidate has a dedicated page displaying their tech stack with badges, links to their resume for online viewing, one-click interview invitation, interview cancellation, and feedback from interviewers, HR, or hiring managers.
 
-![Candidate profile page](images/cv-detail-page.png)
+![Candidate profile page](images/detail.png)
 
 3. **Interview Scheduling**: Automatically sends an invitation email with interview details when HR selects the interview date, time, and position.
+
+![Interview sending page](images/invite.png)
+
 4. **Tech Stack Matching**: Identifies candidates with relevant tech stacks and ranks search results based on the number of matching skills.
+
+![matching page](images/match.png)
+
+5. **Password Authentication**: Users can log in with a secure password.
+
+![Login oage](images/login.png)
+
+6. **Session Management**: User sessions expire after 20 minutes of inactivity, requiring re-login to maintain security.
 
 
 ## Dependencies and Libraries
@@ -49,10 +63,9 @@ CVEase 是一个 web 应用程序，旨在帮助互联网行业的中小型公�
 2. **候选人档案**：每个候选人有一个专属页面，显示其技术栈词条、跳转 PDF 在线阅读、一键邀请候选人面试、取消面试、面试官或 HR 或招聘经理留下的反馈并展示反馈。
 3. **面试安排**：当 HR 选择面试日期、时间和职位后，自动发送包含面试信息的邀请邮件。
 4. **技术栈匹配**：识别系统内具有相关技术栈的候选人，并根据匹配的技能数量对搜索结果进行排名。
+5. **身份认证**: 用户可以使用密码进行安全登录。
+6. **Session Management**: 用户会话在20分钟不活动后会过期，需要重新登录以确保安全性。
 
-## 介绍
-
-CVEase 旨在帮助 HR 部门高效管理候选人信息和安排面试。它提供了一个用户友好的界面，用于上传和解析简历、管理候选人档案和处理面试安排。该应用程序使用高级 Python web 框架 Django 构建，并通过 AWS Elastic Beanstalk 部署以实现可扩展性和可靠性。
 
 ## 依赖和库
 

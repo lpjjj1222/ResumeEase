@@ -20,7 +20,7 @@ CVEase is a web application designed to streamline the process of managing resum
 
 ![matching page](images/match.png)
 
-5. **Password Authentication**: Users can log in with a secure password.
+5. **Password Authentication**: Users can log in with a secure password. (Username:pp, Password:666666)
 
 ![Login oage](images/login.png)
 
@@ -63,7 +63,7 @@ CVEase 是一个 web 应用程序，旨在帮助互联网行业的中小型公�
 2. **候选人档案**：每个候选人有一个专属页面，显示其技术栈词条、跳转 PDF 在线阅读、一键邀请候选人面试、取消面试、面试官或 HR 或招聘经理留下的反馈并展示反馈。
 3. **面试安排**：当 HR 选择面试日期、时间和职位后，自动发送包含面试信息的邀请邮件。
 4. **技术栈匹配**：识别系统内具有相关技术栈的候选人，并根据匹配的技能数量对搜索结果进行排名。
-5. **身份认证**: 用户可以使用密码进行安全登录。
+5. **身份认证**: 用户可以使用密码进行安全登录。(用户名：pp,密码：666666)
 6. **会话管理**: 用户会话在20分钟不活动后会过期，需要重新登录以确保安全性。
 
 
